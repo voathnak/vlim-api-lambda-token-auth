@@ -32,8 +32,8 @@ Resources:
             Path: /
             Method: get
             # NOTE: Uncomment the two lines below to make `GET /` publicly accessible
-            # Auth:
-            #   Authorizer: NONE
+            Auth:
+              Authorizer: NONE
         GetUsers:
           Type: Api
           Properties:
