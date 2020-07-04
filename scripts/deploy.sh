@@ -20,15 +20,3 @@ sam deploy 	--profile "$PROFILE" \
 				DeploymentS3BucketName="$S3_BUCKET" \
 				AppName="$APP_NAME" \
 			--capabilities CAPABILITY_IAM
-
-# shellcheck disable=SC2155
-export API_GATEWAY_URL=$( \
-aws cloudformation describe-stacks \
-					--profile "$PROFILE" \
-					--region "$REGION" \
-					--stack-name "$STACK_NAME" \
-					--query 'Stacks[0].Outputs[0].OutputValue' \
-					--output text \
-)
-
-echo "API Gateway URL: $API_GATEWAY_URL"
